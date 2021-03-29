@@ -1,0 +1,62 @@
+.navigation {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: repeat(4,1fr);
+  grid-template-areas:  'intro      t_cr        t_cr .   .'
+                        '.          t_cr        t_cr t_a t_a'
+                        'alignment alignment    gaps t_a t_a'
+                        'alignment alignment    .    .   .';
+  // height: 100vh;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  color: #fff;
+  transition: .3s ;
+
+  & > div {
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.3);
+    }
+  }
+
+}
+
+#animation-portal {
+  position: fixed;
+}
+
+.navigation__intro {
+  grid-area: intro;
+}
+
+.navigation__templates {
+  grid-area: t_cr;
+}
+
+.navigation__template-areas {
+  grid-area: t_a;
+}
+
+.navigation__gap {
+  grid-area: gaps;
+}
+
+.navigation__alignment {
+  grid-area: alignment;
+}
+
+@keyframes increase{
+  from { 
+    gap: 4rem;
+    opacity: 0;
+  }
+  to {
+    gap: 1rem;
+  }
+}
