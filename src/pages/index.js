@@ -5,7 +5,7 @@ import Grid from '../components/grid';
 const IndexPage = () => {
   return (
     <main>
-      <h1 className="text-8xl font-bold text-center mb-4 text-indigo-700 mb-8 animate__animated animate__fadeInUp">
+      <h1 className="text-8xl font-bold text-center mb-4 text-indigo-700 mb-4 animate__animated animate__fadeInUp">
         CSS Grid Layout
       </h1>
       <h2 className="text-6xl font-bold text-center mb-4text-coolGray-800 mb-12 animate__animated animate__fadeInUp">

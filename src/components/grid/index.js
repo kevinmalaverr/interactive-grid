@@ -4,8 +4,6 @@ import { navigate } from 'gatsby';
 import pageTransition from '../../utils/pageTransition';
 
 const Grid = () => {
-  const item = useRef();
-
   const handleClick = () =>
     pageTransition({
       onMiddle: () => {
@@ -15,30 +13,37 @@ const Grid = () => {
 
   return (
     <div className="navigation animate__animated animate__fadeIn">
-      <div className="navigation__intro bg-indigo-700" onClick={handleClick()}>
-        <h2>introducción</h2>
-      </div>
-      <div
-        className="navigation__templates bg-green-300"
+      <article
+        className="navigation__section navigation__intro bg-indigo-700"
         onClick={handleClick()}
       >
-        texto tengo texto
-      </div>
-      <div
-        className="navigation__template-areas bg-blue-700"
+        <h2 className="text-xl">Introducción</h2>
+      </article>
+      <article
+        className="navigation__section navigation__templates bg-indigo-500"
         onClick={handleClick()}
       >
-        texto tengo texto
-      </div>
-      <div
-        className="navigation__alignment bg-indigo-700"
+        <h2 className="text-xl">template-columns</h2>
+        <h2 className="text-xl">template-rows</h2>
+      </article>
+      <article
+        className="navigation__section navigation__template-areas bg-blue-700"
         onClick={handleClick()}
       >
-        texto tengo texto
-      </div>
-      <div className="navigation__gap bg-purple-700" onClick={handleClick()}>
-        texto tengo texto
-      </div>
+        <h2 className="text-xl">introducción</h2>
+      </article>
+      <article
+        className="navigation__section navigation__alignment bg-indigo-700"
+        onClick={handleClick()}
+      >
+        <h2 className="text-xl">introducción</h2>
+      </article>
+      <article
+        className="navigation__section navigation__gap bg-purple-700"
+        onClick={handleClick()}
+      >
+        <h2 className="text-xl">introducción</h2>
+      </article>
     </div>
   );
 };

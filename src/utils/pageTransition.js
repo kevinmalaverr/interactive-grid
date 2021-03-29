@@ -1,50 +1,52 @@
 import anime from 'animejs';
 
-export default ({ onMiddle }) => (event) => {
-  const {
-    width,
-    height,
-    top,
-    left,
-  } = event.currentTarget.getBoundingClientRect();
+export default ({ onMiddle }) => ({ currentTarget }) => {
+  const { width, height, top, left } = currentTarget.getBoundingClientRect();
+  const container = document.getElementById('animation-portal');
+  const targetClone = currentTarget.cloneNode(true);
 
-  const anim = document.getElementById('animation-portal');
+  targetClone.style.position = 'fixed';
+  targetClone.style.top = ~~top + 'px';
+  targetClone.style.left = ~~left + 'px';
+  targetClone.style.width = `${width}px`;
+  targetClone.style.height = `${height}px`;
 
-  anim.style.width = `${width}px`;
-  anim.style.height = `${height}px`;
-  anim.style.background = 'rgb(67, 56, 202)';
-  anim.style.top = ~~top + 'px';
-  anim.style.left = ~~left + 'px';
-  // anim.style.opacity = 0;
-  anim.style.display = 'block';
+  container.appendChild(targetClone);
 
   const end = anime({
-    targets: anim,
+    targets: targetClone,
     opacity: [1, 0],
     easing: 'linear',
     autoplay: false,
-    duration: 200,
-    complete: () => {
-      anim.style.display = 'none';
+    duration: 300,
+    endDelay: 200,
+    complete() {
+      container.removeChild(targetClone);
     },
   });
 
   const begin = anime({
-    targets: anim,
+    targets: targetClone,
     top: 0,
     left: 0,
     width: '100vw',
     height: '100vh',
-    easing: 'easeInOutCirc',
+    easing: 'easeInOutExpo',
     duration: 300,
-    opacity: 1,
-    complete: function (anim) {
+    autoplay: false,
+    endDelay: 200,
+    backroundColor: 'none',
+    complete() {
       if (typeof onMiddle === 'function') {
         onMiddle();
       }
       setTimeout(() => {
         end.play();
-      }, 400);
+      }, 300);
     },
   });
+
+  setTimeout(() => {
+    begin.play();
+  }, 0);
 };

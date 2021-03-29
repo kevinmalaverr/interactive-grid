@@ -5,11 +5,11 @@ body {
 body::-webkit-scrollbar {
   width: 8px;
 }
- 
+
 body::-webkit-scrollbar-track {
   background-color: rgb(247, 247, 247);
 }
- 
+
 body::-webkit-scrollbar-thumb {
   background-color: rgb(211, 211, 211);
   border-radius: 4px;
@@ -20,7 +20,19 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .main-container {
-  max-width: 1000px;
+  max-width: 500px;
   margin: auto;
   padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .main-container {
+    max-width: 700px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-container {
+    max-width: 1100px;
+  }
 }
