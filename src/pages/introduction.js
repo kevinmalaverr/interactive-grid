@@ -1,9 +1,9 @@
 import React from "react"
-import { navigate } from "gatsby"
 import Header from "../components/Header"
 import SubSection from "../components/SubSection"
 import ContentTable from "../components/ContentTable"
 import SectionLayout from "../components/SectionLayout"
+import SEO from "../components/SEO"
 
 const links = [
   { id: "ff", name: "Grid Container" },
@@ -13,6 +13,7 @@ const links = [
 const other = () => (
   <>
     <Header name="Template areas" />
+    <SEO title="Introduction" />
     <SectionLayout>
       <ContentTable links={links} />
       <div>

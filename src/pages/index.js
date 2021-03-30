@@ -1,10 +1,12 @@
 import * as React from "react"
 import Grid from "../components/Grid"
 import Header from "../components/Header"
+import SEO from "../components/SEO"
 
 const IndexPage = () => (
   <>
     <Header name="🚀 Explore" />
+    <SEO />
     <main>
       <h1 className="text-8xl font-bold text-center mb-4 text-indigo-700 mb-4 animate__animated animate__fadeInUp">
         CSS Grid Layout

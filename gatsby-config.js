@@ -1,6 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: 'interactive-grid',
+    title: "Interactive Grid",
+    titleTemplate: "%s · Interactive Grid",
+    description: "An interactive guide of CSS Grid",
+    url: "https://interactive-grid.vercel.app", // No trailing slash allowed!
+    image: "/images/preview.png", // Path to your image you placed in the 'static' folder
+    twitterUsername: "@occlumency",
   },
-  plugins: ['gatsby-plugin-sass', 'gatsby-plugin-postcss'],
-};
+  plugins: ["gatsby-plugin-sass", "gatsby-plugin-postcss"],
+}
