@@ -5,3 +5,31 @@
 * {
   box-sizing: border-box;
 }
+
+.page-transition {
+  animation: pageTransition 0.3s forwards;
+}
+
+.page-transition-end {
+  animation: pageTransitionEnd 0.3s forwards 0.3s;
+}
+
+@keyframes pageTransition {
+  from {
+  }
+  to {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@keyframes pageTransitionEnd {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

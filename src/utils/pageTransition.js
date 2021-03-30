@@ -1,5 +1,3 @@
-import anime from 'animejs';
-
 export default ({ onMiddle }) => ({ currentTarget }) => {
   const { width, height, top, left } = currentTarget.getBoundingClientRect();
   const container = document.getElementById('animation-portal');
@@ -10,43 +8,25 @@ export default ({ onMiddle }) => ({ currentTarget }) => {
   targetClone.style.left = ~~left + 'px';
   targetClone.style.width = `${width}px`;
   targetClone.style.height = `${height}px`;
+  targetClone.classList.add('page-transition');
 
-  container.appendChild(targetClone);
-
-  const end = anime({
-    targets: targetClone,
-    opacity: [1, 0],
-    easing: 'linear',
-    autoplay: false,
-    duration: 300,
-    endDelay: 200,
-    complete() {
-      container.removeChild(targetClone);
-    },
-  });
-
-  const begin = anime({
-    targets: targetClone,
-    top: 0,
-    left: 0,
-    width: '100vw',
-    height: '100vh',
-    easing: 'easeInOutExpo',
-    duration: 300,
-    autoplay: false,
-    endDelay: 200,
-    backroundColor: 'none',
-    complete() {
+  targetClone.addEventListener('animationend', ({ animationName }) => {
+    if (animationName === 'pageTransition') {
       if (typeof onMiddle === 'function') {
         onMiddle();
       }
-      setTimeout(() => {
-        end.play();
-      }, 300);
-    },
+
+      targetClone.style.top = '0';
+      targetClone.style.left = '0';
+      targetClone.style.width = '100vw';
+      targetClone.style.height = '100vh';
+
+      targetClone.classList.remove('page-transition');
+      targetClone.classList.add('page-transition-end');
+    } else if (animationName === 'pageTransitionEnd') {
+      container.removeChild(targetClone);
+    }
   });
 
-  setTimeout(() => {
-    begin.play();
-  }, 0);
+  container.appendChild(targetClone);
 };

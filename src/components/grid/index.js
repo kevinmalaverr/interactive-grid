@@ -30,19 +30,19 @@ const Grid = () => {
         className="navigation__section navigation__template-areas bg-blue-700"
         onClick={handleClick()}
       >
-        <h2 className="text-xl">introducción</h2>
+        <h2 className="text-xl">Template Areas</h2>
       </article>
       <article
         className="navigation__section navigation__alignment bg-indigo-700"
         onClick={handleClick()}
       >
-        <h2 className="text-xl">introducción</h2>
+        <h2 className="text-xl">Alignment</h2>
       </article>
       <article
         className="navigation__section navigation__gap bg-purple-700"
         onClick={handleClick()}
       >
-        <h2 className="text-xl">introducción</h2>
+        <h2 className="text-xl">Gap</h2>
       </article>
     </div>
   );
