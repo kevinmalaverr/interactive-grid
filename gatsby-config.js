@@ -7,5 +7,9 @@ module.exports = {
     image: "/images/preview.png", // Path to your image you placed in the 'static' folder
     twitterUsername: "@occlumency",
   },
-  plugins: ["gatsby-plugin-sass", "gatsby-plugin-postcss"],
+  plugins: [
+    "gatsby-plugin-sass",
+    "gatsby-plugin-postcss",
+    `gatsby-plugin-react-helmet`,
+  ],
 }
