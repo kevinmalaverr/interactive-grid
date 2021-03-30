@@ -1,0 +1,19 @@
+.section-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .section-layout {
+    grid-template-columns: 1fr minmax(150px, auto);
+  }
+
+  .section-layout *:first-child {
+    grid-column: 2/3;
+  }
+
+  .section-layout *:last-child {
+    grid-row: 1/2;
+  }
+}

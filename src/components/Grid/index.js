@@ -1,21 +1,21 @@
-import React, { useRef } from 'react';
-import './styles.scss';
-import { navigate } from 'gatsby';
-import pageTransition from '../../utils/pageTransition';
+import React from "react"
+import "./styles.scss"
+import { navigate } from "gatsby"
+import pageTransition from "../../utils/pageTransition"
 
 const Grid = () => {
-  const handleClick = () =>
+  const handleClick = (route) =>
     pageTransition({
       onMiddle: () => {
-        console.log(navigate('/other'));
+        navigate(route)
       },
-    });
+    })
 
   return (
     <div className="navigation animate__animated animate__fadeIn">
       <article
         className="navigation__section navigation__intro bg-indigo-700"
-        onClick={handleClick()}
+        onClick={handleClick("/introduction")}
       >
         <h2 className="text-xl">Introducción</h2>
       </article>
@@ -45,7 +45,7 @@ const Grid = () => {
         <h2 className="text-xl">Gap</h2>
       </article>
     </div>
-  );
-};
+  )
+}
 
-export default Grid;
+export default Grid

@@ -1,14 +1,11 @@
-import React from 'react';
-import './styles.css';
-import Header from '../Header';
+import React from "react"
+import "./styles.css"
+import { Provider } from "../../context"
 
-const Layout = ({ children, sectionName }) => {
-  return (
-    <>
-      <Header></Header>
-      <div className="main-container">{children}</div>;
-    </>
-  );
-};
+const Layout = ({ children, ...props }) => (
+  <Provider>
+    <div className="main-container">{children}</div>;
+  </Provider>
+)
 
-export default Layout;
+export default Layout

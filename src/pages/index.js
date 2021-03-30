@@ -1,9 +1,10 @@
-import * as React from 'react';
-import Grid from '../components/grid';
+import * as React from "react"
+import Grid from "../components/Grid"
+import Header from "../components/Header"
 
-// markup
-const IndexPage = () => {
-  return (
+const IndexPage = () => (
+  <>
+    <Header name="🚀 Explore" />
     <main>
       <h1 className="text-8xl font-bold text-center mb-4 text-indigo-700 mb-4 animate__animated animate__fadeInUp">
         CSS Grid Layout
@@ -13,7 +14,7 @@ const IndexPage = () => {
       </h2>
       <Grid />
     </main>
-  );
-};
+  </>
+)
 
-export default IndexPage;
+export default IndexPage

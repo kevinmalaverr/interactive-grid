@@ -1,0 +1,25 @@
+.sub-section {
+  color: #111827;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sub-section:hover .anchor {
+  opacity: 1;
+  border-bottom: none;
+}
+
+.anchor {
+  position: absolute;
+  left: -1.2rem;
+  opacity: 0;
+  border-bottom: none;
+  vertical-align: text-top;
+}
+
+.anchor svg {
+  display: inline;
+  fill: #4338ca;
+}

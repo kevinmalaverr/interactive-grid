@@ -6,6 +6,17 @@
   box-sizing: border-box;
 }
 
+a {
+  color: #3730a3;
+  border-bottom: 1px solid #818cf8;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #312e81;
+  border-bottom: 1px solid #3730a3;
+}
+
 .page-transition {
   animation: pageTransition 0.3s forwards;
 }
