@@ -1,0 +1,67 @@
+[aria-label] {
+  position: relative;
+}
+[aria-label]::after {
+  content: attr(aria-label);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 0.4rem;
+  background-color: #333;
+  border-radius: 4px;
+  color: #fff;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+[aria-label]:hover::after,
+[aria-label]:focus::after {
+  opacity: 1;
+  left: calc(100% + 6px);
+}
+
+[aria-label]::before {
+  content: '';
+  position: absolute;
+  opacity: 0;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) rotateY(180deg);
+  width: 6px;
+  height: 18px;
+  background: no-repeat
+    url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22rgba(17, 17, 17, 0.9)%22%20transform%3D%22rotate(-90 18 18)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E');
+  background-size: contain;
+  transition: 0.2s;
+}
+
+[aria-label]:hover::before,
+[aria-label]:focus::before {
+  opacity: 1;
+  left: 100%;
+}
+
+[aria-label][data-tooltip-pos][data-tooltip-pos='left']::after {
+  left: auto;
+  right: 50%;
+}
+
+[aria-label][data-tooltip-pos][data-tooltip-pos='left']:hover::after,
+[aria-label][data-tooltip-pos][data-tooltip-pos='left']:focus::after {
+  left: auto;
+  right: calc(100% + 6px);
+}
+
+[aria-label][data-tooltip-pos][data-tooltip-pos='left']::before {
+  background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22rgba(17, 17, 17, 0.9)%22%20transform%3D%22rotate(-90 18 18)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E');
+  transform: translateY(-50%) rotateY(0deg);
+  left: auto;
+  right: 50%;
+}
+
+[aria-label][data-tooltip-pos][data-tooltip-pos='left']:hover::before,
+[aria-label][data-tooltip-pos][data-tooltip-pos='left']:focus::before {
+  left: auto;
+  right: 100%;
+}
