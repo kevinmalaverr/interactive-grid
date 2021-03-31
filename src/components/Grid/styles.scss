@@ -1,14 +1,14 @@
 .navigation {
   display: grid;
   gap: 1rem;
-  grid-template: repeat(5,1fr) / repeat(2, 1fr);
-  grid-template-areas:  'intro intro'
-                        't_cr t_cr' 
-                        't_a t_a'
-                        'gaps gaps'
-                        'alignment alignment';
+  grid-template: repeat(5, 1fr) / repeat(2, 1fr);
+  grid-template-areas:
+    'intro intro'
+    't_cr t_cr'
+    't_a t_a'
+    'gaps gaps'
+    'alignment alignment';
   aspect-ratio: 2 / 4;
-  overflow: hidden;
 }
 
 #animation-portal {
@@ -16,7 +16,7 @@
 }
 
 .navigation__section {
-  transition: .3s;
+  transition: 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +36,6 @@
     z-index: 110;
   }
 }
-
 
 .navigation__intro {
   grid-area: intro;
@@ -58,8 +57,8 @@
   grid-area: alignment;
 }
 
-@keyframes increase{
-  from { 
+@keyframes increase {
+  from {
     gap: 4rem;
     opacity: 0;
   }
@@ -69,23 +68,25 @@
 }
 
 @media (min-width: 640px) {
-  .navigation{
-    grid-template: repeat(4,1fr) / repeat(3, 1fr);
-    grid-template-areas:  'intro      t_cr        t_cr '
-                          'gaps       t_cr        t_cr '
-                          'alignment alignment t_a'
-                          'alignment alignment t_a';
+  .navigation {
+    grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+    grid-template-areas:
+      'intro      t_cr        t_cr '
+      'gaps       t_cr        t_cr '
+      'alignment alignment t_a'
+      'alignment alignment t_a';
     aspect-ratio: 4 / 3;
   }
 }
 
 @media (min-width: 1024px) {
-  .navigation{
-    grid-template: repeat(4,1fr) / repeat(5, 1fr);
-    grid-template-areas:  'intro      t_cr        t_cr .   .'
-                          '.          t_cr        t_cr t_a t_a'
-                          'alignment alignment    gaps t_a t_a'
-                          'alignment alignment    .    .   .';
+  .navigation {
+    grid-template: repeat(4, 1fr) / repeat(5, 1fr);
+    grid-template-areas:
+      'intro      t_cr        t_cr .   .'
+      '.          t_cr        t_cr t_a t_a'
+      'alignment alignment    gaps t_a t_a'
+      'alignment alignment    .    .   .';
     aspect-ratio: 5 / 4;
   }
 }
