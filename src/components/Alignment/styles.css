@@ -1,0 +1,30 @@
+.alignment-container {
+  display: grid;
+  grid-template: repeat(3, auto) / repeat(3, auto);
+  width: 100%;
+  gap: 1rem;
+  aspect-ratio: 1 / 1;
+  background-color: #a5b4fc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.alignment-container__item-container {
+  min-width: 8rem;
+  min-height: 8rem;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  border: 1px solid transparent;
+}
+
+.alignment-container:hover .alignment-container__item-container {
+  border: 1px dotted #5b21b6;
+}
+
+.alignment-container__item {
+  background-color: #4338ca;
+  min-width: 8rem;
+  min-height: 8rem;
+  border: 1px dotted #5b21b6;
+  border-radius: 8px;
+}
