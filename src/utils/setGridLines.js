@@ -1,8 +1,13 @@
-export default function (id) {
-  const container = document.getElementById(id)
+/**
+ *
+ * @param {*} containerRef
+ * @returns {Function} removeInspector
+ */
+export default function setGridLines(containerRef) {
+  const container = containerRef
   const inspector = document.createElement("div")
 
-  document.body.appendChild(inspector)
+  containerRef.appendChild(inspector)
 
   // get the rows/columns/gaps
   const styles = window.getComputedStyle(container)
@@ -87,88 +92,61 @@ ${bg}
     inspector.appendChild(line)
   })
 
-  /*
-  Converts a grid template string into an array of grid line objects
-  
-  Example input: "[full-start] 300px 300px [full-end]"
-     
-  Example outut:
-  [{
-    "start": -1,
-    "end": 1,
-    "name": "full-start"
-  },
-  {
-    "start": 299,
-    "end": 301,
-    "name": null,
-    "gap": 20
-  },
-  {
-    "start": 619,
-    "end": 621,
-    "name": "full-end"
-  }]
-*/
-  function parseGridTemplate(templateStr, gap = "0px") {
-    const gapSize = parseFloat(gap.replace("px", ""))
+  return function () {
+    containerRef.removeChild(inspector)
+  }
+}
 
-    // splits at and space that isn't between two [ ] brackets
-    const parsedArray = templateStr.split(/\s(?![^[]*])/)
-    const lines = []
-    let currentPosition = 0
+function getName(item) {
+  return item.includes("[") ? item.match(/\[(.*)\]/)[1].trim() : null
+}
 
-    // add in any missing names as ""
-    // "200px [center-start] 300px [center-end] 400px" becomes:
-    // "'' 200px [center-start] 300px [center-end] 400px ''"
+function parseGridTemplate(templateStr, gap = "0px") {
+  const gapSize = parseFloat(gap.replace("px", ""))
 
-    const allItems = []
+  // splits at and space that isn't between two [ ] brackets
+  const parsedArray = templateStr.split(/\s(?![^[]*])/)
+  const lines = []
+  let currentPosition = 0
 
-    parsedArray.forEach((item, index) => {
-      if (item.includes("px")) {
-        // add a null name before it if missing
-        if (!parsedArray[index - 1] || parsedArray[index - 1].includes("px")) {
-          allItems.push("")
-        }
+  const allItems = []
+
+  parsedArray.forEach((item, index) => {
+    if (item.includes("px")) {
+      // add a null name before it if missing
+      if (!parsedArray[index - 1] || parsedArray[index - 1].includes("px")) {
+        allItems.push("")
       }
-
-      allItems.push(item)
-    })
-
-    // handle last item
-    if (parsedArray[parsedArray.length - 1].includes("px")) {
-      allItems.push("")
     }
 
-    allItems.forEach((item, index) => {
-      if (item.includes("px")) {
-        const trackSize = parseFloat(item.replace("px", ""))
-        currentPosition += trackSize
-      } else {
-        const newLine = {
-          start: currentPosition - 1,
-          end: currentPosition + 1,
-          name: getName(item),
-        }
-        // add gaps on just the inner lines
-        // and count it for positioning
-        if (index !== 0 && index !== allItems.length - 1 && gapSize !== 0) {
-          newLine.gap = gapSize
-          currentPosition += gapSize
-        }
+    allItems.push(item)
+  })
 
-        lines.push(newLine)
+  // handle last item
+  if (parsedArray[parsedArray.length - 1].includes("px")) {
+    allItems.push("")
+  }
+
+  allItems.forEach((item, index) => {
+    if (item.includes("px")) {
+      const trackSize = parseFloat(item.replace("px", ""))
+      currentPosition += trackSize
+    } else {
+      const newLine = {
+        start: currentPosition - 1,
+        end: currentPosition + 1,
+        name: getName(item),
       }
-    })
+      // add gaps on just the inner lines
+      // and count it for positioning
+      if (index !== 0 && index !== allItems.length - 1 && gapSize !== 0) {
+        newLine.gap = gapSize
+        currentPosition += gapSize
+      }
 
-    return lines
-  }
+      lines.push(newLine)
+    }
+  })
 
-  function getName(item) {
-    return item.includes("[") ? item.match(/\[(.*)\]/)[1].trim() : null
-  }
-
-  return function () {
-    document.body.removeChild(inspector)
-  }
+  return lines
 }
