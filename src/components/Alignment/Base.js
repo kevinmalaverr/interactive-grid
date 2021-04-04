@@ -31,17 +31,17 @@ const Base = ({ type, property }) => {
   const [style, setStyle] = useState(defaultStyle)
   const ref = useInspector([style])
 
-  // useEffect(() => {
-  //   let i = 0
-  //   const id = setInterval(() => {
-  //     setStyle({
-  //       ...style,
-  //       [type]: { ...style[type], [property]: alignment[type][i] },
-  //     })
-  //     i = (i + 1) % alignment[type].length
-  //   }, 1500)
-  //   return () => clearInterval(id)
-  // }, [])
+  useEffect(() => {
+    let i = 0
+    const id = setInterval(() => {
+      setStyle({
+        ...style,
+        [type]: { ...style[type], [property]: alignment[type][i] },
+      })
+      i = (i + 1) % alignment[type].length
+    }, 1500)
+    return () => clearInterval(id)
+  }, [])
 
   return (
     <div className="alignment-container" style={style.content} ref={ref}>
