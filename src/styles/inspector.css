@@ -1,0 +1,7 @@
+.inspector {
+  opacity: 0;
+}
+
+.inspector:hover {
+  opacity: 1;
+}

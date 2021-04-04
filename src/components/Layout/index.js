@@ -4,7 +4,7 @@ import { Provider } from "../../context"
 
 const Layout = ({ children, ...props }) => (
   <Provider>
-    <div className="main-container">{children}</div>;
+    <div className="main-container">{children}</div>
   </Provider>
 )
 

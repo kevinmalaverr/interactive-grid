@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import './tooltip.css';
+@import './inspector.css';
 
 * {
   box-sizing: border-box;
