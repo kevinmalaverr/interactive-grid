@@ -1,7 +1,13 @@
-.inspector {
+/* .inspector {
   opacity: 0;
+  animation: FadeIn 0.2s forwards;
 }
 
-.inspector:hover {
-  opacity: 1;
-}
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} */

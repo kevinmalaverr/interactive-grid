@@ -1,4 +1,4 @@
-const lineStyle = `1px dashed #000`
+const lineStyle = `2px dashed #7C3AED`
 const common = `
   background: repeating-linear-gradient(
     45deg,

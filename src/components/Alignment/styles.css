@@ -11,6 +11,11 @@
   overflow: hidden;
 }
 
+.alignment-container--playground {
+  max-height: 80vh;
+  margin: auto;
+}
+
 .alignment-container__item-container {
   /* min-width: 50%;
   min-height: 50%; */
@@ -20,10 +25,6 @@
   position: relative;
   align-items: center;
   justify-items: center;
-}
-
-.alignment-container:hover .alignment-container__item-container {
-  border: 1px dotted #5b21b6;
 }
 
 .alignment-container__item {

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react"
 import "./styles.css"
 import { range } from "../../utils/arrays"
 import Code from "../CodeBlock"
+import { camelToKebab } from "../../utils/strings"
 
 const code = (prop, value, type) => `
   .${type === "self" ? "item" : "container"} {
-    ${prop}: ${value};
+    ${camelToKebab(prop)}: ${value};
   }
 `
 const alignment = {
@@ -24,16 +25,16 @@ const alignment = {
 
 const defaultStyle = {
   content: {
-    "justify-content": "stretch",
-    "align-content": "stretch",
+    justifyContent: "stretch",
+    alignContent: "stretch",
   },
   items: {
-    "justify-items": "stretch",
-    "align-items": "stretch",
+    justifyItems: "stretch",
+    alignItems: "stretch",
   },
   self: {
-    "justify-self": "stretch",
-    "align-self": "stretch",
+    justifySelf: "stretch",
+    alignSelf: "stretch",
   },
 }
 
