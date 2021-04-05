@@ -4,6 +4,7 @@
 
 @import './tooltip.css';
 @import './inspector.css';
+@import './prism.css';
 
 * {
   box-sizing: border-box;

@@ -30,19 +30,6 @@ const defaultStyle = {
 const Base = ({ type, property }) => {
   const [style, setStyle] = useState(defaultStyle)
   const ref = useInspector([style])
-
-  useEffect(() => {
-    let i = 0
-    const id = setInterval(() => {
-      setStyle({
-        ...style,
-        [type]: { ...style[type], [property]: alignment[type][i] },
-      })
-      i = (i + 1) % alignment[type].length
-    }, 1500)
-    return () => clearInterval(id)
-  }, [])
-
   return (
     <div className="alignment-container" style={style.content} ref={ref}>
       {range(9).map((key) => (
@@ -51,7 +38,10 @@ const Base = ({ type, property }) => {
           className="alignment-container__item-container"
           style={style.items}
         >
-          <div className="alignment-container__item" style={style.self} />
+          <div
+            className="alignment-container__item"
+            style={key === 4 ? style.self : {}}
+          />
         </div>
       ))}
     </div>
