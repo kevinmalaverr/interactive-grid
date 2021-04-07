@@ -1,4 +1,4 @@
-const lineStyle = `2px dashed #7C3AED`
+const lineStyle = `1px dashed #7C3AED`
 const common = `
   background: repeating-linear-gradient(
     45deg,
@@ -43,6 +43,32 @@ export default function setGridLines(containerRef, { extendLines = 10 } = {}) {
     rowLines.push(child.offsetTop - container.offsetTop)
     rowLines.push(child.offsetTop + child.offsetHeight - container.offsetTop)
   }
+
+  function createGaps(i) {
+    const colGap = document.createElement("div")
+    const rowGap = document.createElement("div")
+    colGap.style = `
+      ${common}
+      height: ${container.offsetHeight}px;
+      width: ${colLines[i + 1] - colLines[i]}px;
+      height: ${rowLines[rowLines.length - 1] - rowLines[0]}px;
+      top: ${rowLines[0]}px;
+      left: ${colLines[i]}px;
+    `
+    rowGap.style = `
+      ${common}
+      height: ${container.offsetHeight}px;
+      width: ${colLines[colLines.length - 1] - colLines[0]}px;
+      height: ${rowLines[i + 1] - rowLines[i]}px;
+      top: ${rowLines[i]}px;
+      left: ${colLines[0]}px;
+    `
+    inspector.appendChild(colGap)
+    inspector.appendChild(rowGap)
+  }
+
+  createGaps(1)
+  createGaps(3)
 
   function createColLines(item) {
     const lines = [document.createElement("div"), document.createElement("div")]
