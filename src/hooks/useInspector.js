@@ -1,5 +1,6 @@
-import React, { useRef, useEffect, useState } from "react"
+import { useRef, useEffect, useState } from "react"
 import setGridLines from "../utils/setGridLines"
+import awaitEvent from "../utils/awaitEvent"
 
 /**
  *  generate an inspector for the ref Element
@@ -16,11 +17,18 @@ export const useInspector = (deps = []) => {
   }
 
   useEffect(() => {
+    let wasDeleted = false
     const deleteGridLines = setGridLines(ref.current)
-    window.addEventListener("resize", reportWindowSize)
+    const removeEvent = awaitEvent("resize", {
+      onStart: () => {
+        wasDeleted = true
+        deleteGridLines()
+      },
+      onEnd: reportWindowSize,
+    })
     return () => {
-      deleteGridLines()
-      window.removeEventListener("resize", reportWindowSize)
+      if (!wasDeleted) deleteGridLines()
+      removeEvent()
     }
   }, [windowSize, ...deps])
 
