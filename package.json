@@ -9,10 +9,11 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
+    "start": "npm run gen:search && gatsby develop",
+    "build": "npm run gen:search && gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "gen:search": "node ./src/scripts/generateSearch.js"
   },
   "dependencies": {
     "algoliasearch": "^3.35.1",
