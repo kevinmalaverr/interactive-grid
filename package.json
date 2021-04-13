@@ -16,13 +16,11 @@
     "gen:search": "node ./src/scripts/generateSearch.js"
   },
   "dependencies": {
-    "algoliasearch": "^3.35.1",
     "animate.css": "^4.1.1",
     "animejs": "^3.2.1",
     "dotenv": "^8.2.0",
     "escape-string-regexp": "^4.0.0",
     "gatsby": "^3.1.2",
-    "gatsby-plugin-algolia": "^0.18.0",
     "gatsby-plugin-react-helmet": "^4.2.0",
     "gatsby-plugin-sass": "^4.1.0",
     "gatsby-source-filesystem": "^3.2.0",
