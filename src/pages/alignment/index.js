@@ -5,6 +5,7 @@ import Base from "../../components/Alignment/Animation"
 import SubSection from "../../components/SubSection"
 import ContentTable from "../../components/ContentTable"
 import Interactive from "../../components/Alignment/Interactive"
+import FooterNav from "../../components/FooterNav"
 import data from "../../pageData/alignment"
 
 const { links, title, description, content } = data
@@ -52,6 +53,7 @@ const Alignment = () => (
       </div>
       <Interactive />
     </div>
+    <FooterNav prev="/introduction" next="/gap" />
   </>
 )
 
