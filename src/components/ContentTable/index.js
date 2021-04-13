@@ -13,7 +13,7 @@ const ContentTable = ({ links }) => (
             id={`anchor-${link.id}`}
             key={link.id}
           >
-            {link.name}
+            {link.title}
           </a>
         </li>
       ))}
