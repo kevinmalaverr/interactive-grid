@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react"
-import { navigate } from "gatsby"
+import React, { useState } from "react"
 import ArrowLeft from "../icons/ArrowLeft"
-import Search from "../icons/Search"
+import SearchIcon from "../icons/Search"
 import { useBackNav } from "../../hooks/useNavigation"
+import SearchModal from "../Modal"
+import Search from "../Search"
 
 const index = ({ name }) => {
   const back = useBackNav()
+  const [open, setOpen] = useState(false)
 
   return (
     <header className="flex justify-between items-center p-4 mb-4">
@@ -18,10 +20,15 @@ const index = ({ name }) => {
         <ArrowLeft />
       </button>
       <h1 className="text-2xl text-indigo-900 font-bold">{name}</h1>
-
-      <button type="button" aria-label="Search" data-tooltip-pos="left">
-        <Search />
+      <button
+        type="button"
+        aria-label="Search"
+        data-tooltip-pos="left"
+        onClick={() => setOpen(true)}
+      >
+        <SearchIcon />
       </button>
+      <Search isOpen={open} close={() => setOpen(false)} />
     </header>
   )
 }
