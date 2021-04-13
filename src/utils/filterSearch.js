@@ -1,5 +1,5 @@
 export default function filterSearch(data, searchStr, maxItems = 8) {
-  const templateRegex = `(^|\s|-)(${searchStr})(.*)`
+  const templateRegex = `(^| |-)(${searchStr})(.*)`
   const filteredList = []
   let i = 0
 
