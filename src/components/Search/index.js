@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./styles.css"
 import { Link } from "gatsby"
 import Modal from "../Modal"
@@ -9,7 +9,7 @@ const Search = ({ isOpen, close }) => {
   const [allData, setAllData] = useState([])
   const [result, setResult] = useState([])
 
-  useState(() => {
+  useEffect(() => {
     fetch("/searchIndexes.json")
       .then((res) => res.json())
       .then((res) => setAllData(res))
