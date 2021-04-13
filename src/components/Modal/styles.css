@@ -28,6 +28,8 @@
 
 .modal__header {
   display: flex;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e7e7e7;
 }
 .modal__header > div:first-child {
   flex: 1;

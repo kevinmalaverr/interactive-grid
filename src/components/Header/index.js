@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import ArrowLeft from "../icons/ArrowLeft"
-import Search from "../icons/Search"
+import SearchIcon from "../icons/Search"
 import { useBackNav } from "../../hooks/useNavigation"
 import SearchModal from "../Modal"
+import Search from "../Search"
 
 const index = ({ name }) => {
   const back = useBackNav()
@@ -25,9 +26,9 @@ const index = ({ name }) => {
         data-tooltip-pos="left"
         onClick={() => setOpen(true)}
       >
-        <Search />
+        <SearchIcon />
       </button>
-      <SearchModal isOpen={open} close={() => setOpen(false)} />
+      <Search isOpen={open} close={() => setOpen(false)} />
     </header>
   )
 }

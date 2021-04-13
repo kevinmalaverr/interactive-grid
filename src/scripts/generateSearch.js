@@ -30,4 +30,4 @@ apiFiles.forEach((filePath) => {
 })
 
 fs.writeFileSync("./static/searchIndexes.json", JSON.stringify(data))
-console.log(`generated ${data.length} serches`)
+console.log(`generated ${data.length} searches`)

@@ -1,43 +1,14 @@
-const data = [
-  {
-    title: "justify-content",
-    page: "Alignment",
-    href: "/alignment#target-justify-content",
-  },
-  {
-    title: "align-content",
-    page: "Alignment",
-    href: "/alignment#target-align-content",
-  },
-  {
-    title: "justify-items",
-    page: "Alignment",
-    href: "/alignment#target-justify-items",
-  },
-  {
-    title: "align-items",
-    page: "Alignment",
-    href: "/alignment#target-align-items",
-  },
-  {
-    title: "justify-self",
-    page: "Alignment",
-    href: "/alignment#target-justify-self",
-  },
-  {
-    title: "align-self",
-    page: "Alignment",
-    href: "/alignment#target-align-self",
-  },
-  {
-    title: "Playground",
-    page: "Alignment",
-    href: "/alignment#target-playground",
-  },
-]
+export default function filterSearch(data, searchStr, maxItems = 5) {
+  const templateRegex = `(^|\s|-)(${searchStr})`
+  const filteredList = []
+  let i = 0
 
-function filt(searchStr) {
-  return data.filter((search) => search.title.match(new RegExp(searchStr)))
+  if (searchStr.length === 0) return []
+
+  while (i < data.length && filteredList.length < maxItems) {
+    const search = data[i]
+    if (search.title.match(new RegExp(templateRegex))) filteredList.push(search)
+    i++
+  }
+  return filteredList
 }
-
-console.log(filt("a"))
