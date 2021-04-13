@@ -20,7 +20,10 @@ const Modal = ({ isOpen, header, children, close = () => {} }) =>
                 <Close />
               </button>
             </header>
-            <main className="modal-content">{children}</main>
+            <div className="modal__line">
+              <hr />
+            </div>
+            <main className="modal__content">{children}</main>
           </div>
         </div>,
         document.getElementById("modal-portal")

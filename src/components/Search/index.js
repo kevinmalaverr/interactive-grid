@@ -16,16 +16,20 @@ const Search = ({ isOpen, close }) => {
   }, [])
 
   const handleChange = (event) => {
-    setSearch(event.target.value)
     const filtered = filterSearch(allData, event.target.value)
+    setSearch(event.target.value)
     setResult(filtered)
   }
 
-  console.log(search)
+  const handleClose = () => {
+    setSearch("")
+    close()
+  }
+
   return (
     <Modal
       isOpen={isOpen}
-      close={close}
+      close={handleClose}
       header={
         <form className="search-form">
           <input
@@ -33,20 +37,28 @@ const Search = ({ isOpen, close }) => {
             type="text"
             value={search}
             onChange={handleChange}
+            placeholder="Search"
+            autoFocus
           />
         </form>
       }
     >
       {result.map((item) => (
-        <Link to={item.href}>
+        <Link key={item.href} to={item.href} onClick={handleClose}>
           <div className="search-result__item">
             <p className="search-result__page">{item.page}</p>
             <p>
-              <strong>{item.title}</strong>
+              {item.title[0]}
+              {item.title[1]}
+              <strong>{item.title[2]}</strong>
+              {item.title[3]}
             </p>
           </div>
         </Link>
       ))}
+      {result.length === 0 && search.length !== 0 ? (
+        <p className="text-center">No results for &quot;{search}&quot;</p>
+      ) : null}
     </Modal>
   )
 }

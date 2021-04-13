@@ -1,5 +1,5 @@
-export default function filterSearch(data, searchStr, maxItems = 5) {
-  const templateRegex = `(^|\s|-)(${searchStr})`
+export default function filterSearch(data, searchStr, maxItems = 8) {
+  const templateRegex = `(^|\s|-)(${searchStr})(.*)`
   const filteredList = []
   let i = 0
 
@@ -7,7 +7,12 @@ export default function filterSearch(data, searchStr, maxItems = 5) {
 
   while (i < data.length && filteredList.length < maxItems) {
     const search = data[i]
-    if (search.title.match(new RegExp(templateRegex))) filteredList.push(search)
+    const match = search.title.match(new RegExp(templateRegex, "i"))
+    if (match) {
+      const matchedSearch = { ...search }
+      matchedSearch.title = search.title.split(new RegExp(templateRegex, "i"))
+      filteredList.push(matchedSearch)
+    }
     i++
   }
   return filteredList
