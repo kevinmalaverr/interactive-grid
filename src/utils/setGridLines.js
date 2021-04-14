@@ -111,7 +111,11 @@ export default function setGridLines(containerRef, { extendLines = 10 } = {}) {
   containerRef.appendChild(inspector)
 
   function removeInspector() {
-    containerRef.removeChild(inspector)
+    try {
+      containerRef.removeChild(inspector)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return removeInspector

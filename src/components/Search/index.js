@@ -23,6 +23,7 @@ const Search = ({ isOpen, close }) => {
 
   const handleClose = () => {
     setSearch("")
+    setResult([])
     close()
   }
 

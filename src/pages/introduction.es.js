@@ -24,7 +24,7 @@ const other = ({ data }) => (
 export const query = graphql`
   query {
     markdownRemark(
-      frontmatter: { slug: { eq: "/introduction" }, langKey: { eq: "en" } }
+      frontmatter: { slug: { eq: "/introduction" }, langKey: { eq: "es" } }
     ) {
       html
       frontmatter {
