@@ -22,20 +22,20 @@ const other = ({ data }) => (
 )
 
 export const query = graphql`
-  query {
+  query($slug: String!, $lang: String!) {
     markdownRemark(
-      frontmatter: { slug: { eq: "/introduction" }, langKey: { eq: "en" } }
+      frontmatter: { slug: { eq: $slug }, langKey: { eq: $lang } }
     ) {
       html
       frontmatter {
-        slug
-        title
-        navigation {
-          prev
-          next
-        }
         description
         langKey
+        title
+        slug
+        navigation {
+          next
+          prev
+        }
       }
     }
   }

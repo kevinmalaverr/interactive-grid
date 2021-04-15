@@ -20,27 +20,27 @@ module.exports = {
     },
     {
       resolve: `gatsby-transformer-remark`,
-      query: `
-          {
-            allMarkdownRemark {
-              edges {
-                node {
-                  fields {
-                    slug,
-                    langKey
-                  }
-                }
-              }
-            }
-          }
-        `,
+      // query: `
+      //     {
+      //       allMarkdownRemark {
+      //         edges {
+      //           node {
+      //             fields {
+      //               slug,
+      //               langKey
+      //             }
+      //           }
+      //         }
+      //       }
+      //     }
+      //   `,
     },
-    {
-      resolve: "gatsby-plugin-i18n",
-      options: {
-        langKeyDefault: "en",
-        useLangKeyLayout: false,
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-i18n",
+    //   options: {
+    //     langKeyDefault: "en",
+    //     useLangKeyLayout: false,
+    //   },
+    // },
   ],
 }
