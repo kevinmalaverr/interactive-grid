@@ -1,15 +1,15 @@
 ---
-title: Quick Start
+title: empiezo
 description: 'df'
 slug: /introduction
-langKey: en
+lang: es
 navigation:
   prev: asdasdas
   next: asdasd
 ---
 
-# Title in English
+# Titulo en español
 
-hello world
+hola mundo
 
 ## subtitle

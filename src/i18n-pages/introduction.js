@@ -1,19 +1,14 @@
 import React from "react"
-import Markdown from "markdown-to-jsx"
 import { graphql } from "gatsby"
 import Header from "../components/Header"
-import SubSection from "../components/SubSection"
 import ContentTable from "../components/ContentTable"
 import SectionLayout from "../components/SectionLayout"
 import SEO from "../components/SEO"
-import data from "../pageData/introduction"
-
-const { links, title, description, content } = data
 
 const other = ({ data }) => (
   <>
-    <Header name={title} />
-    <SEO title={title} description={description} />
+    <Header name={data.title} />
+    <SEO title={data.title} description={data.description} />
     <SectionLayout>
       <div />
       <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
@@ -23,13 +18,11 @@ const other = ({ data }) => (
 
 export const query = graphql`
   query($slug: String!, $lang: String!) {
-    markdownRemark(
-      frontmatter: { slug: { eq: $slug }, langKey: { eq: $lang } }
-    ) {
+    markdownRemark(frontmatter: { slug: { eq: $slug }, lang: { eq: $lang } }) {
       html
       frontmatter {
         description
-        langKey
+        lang
         title
         slug
         navigation {

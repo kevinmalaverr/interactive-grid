@@ -14,33 +14,12 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/markdown-pages`,
-        name: `markdown-pages`,
+        path: `${__dirname}/src/markdown`,
+        name: `markdown`,
       },
     },
     {
       resolve: `gatsby-transformer-remark`,
-      // query: `
-      //     {
-      //       allMarkdownRemark {
-      //         edges {
-      //           node {
-      //             fields {
-      //               slug,
-      //               langKey
-      //             }
-      //           }
-      //         }
-      //       }
-      //     }
-      //   `,
     },
-    // {
-    //   resolve: "gatsby-plugin-i18n",
-    //   options: {
-    //     langKeyDefault: "en",
-    //     useLangKeyLayout: false,
-    //   },
-    // },
   ],
 }
