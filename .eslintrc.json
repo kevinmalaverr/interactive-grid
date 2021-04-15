@@ -20,7 +20,10 @@
   "plugins": ["react", "prettier", "jest"],
   "rules": {
     "react/jsx-filename-extension": "off",
+    "import/no-named-as-default": 0,
+    "import/no-unresolved": 0,
     "react/prop-types": 0,
+    "no-shadow": 0,
     "no-unused-vars": [
       "error",
       {

@@ -6,15 +6,12 @@ import SubSection from "../../components/SubSection"
 import ContentTable from "../../components/ContentTable"
 import Interactive from "../../components/Alignment/Interactive"
 import FooterNav from "../../components/FooterNav"
-import data from "../../pageData/alignment"
-
-const { links, title, description, content } = data
 
 const Alignment = () => (
   <>
-    <Header name={title} />
-    <SEO title={title} description={description} />
-    <ContentTable links={links} />
+    {/* <Header name={title} />
+    <SEO title={title} description={description} /> */}
+    {/* <ContentTable links={links} />
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
       <div>
         <SubSection id="justify-content">justify-content</SubSection>
@@ -51,8 +48,9 @@ const Alignment = () => (
       <div className="text-center">
         <SubSection id="playground">Playground</SubSection>
       </div>
-      <Interactive />
-    </div>
+      
+    </div> */}
+    <Interactive />
     <FooterNav prev="/introduction" next="/gap" />
   </>
 )

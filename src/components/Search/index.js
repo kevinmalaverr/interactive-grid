@@ -41,6 +41,7 @@ const Search = ({ isOpen, close }) => {
             value={search}
             onChange={handleChange}
             placeholder="Search"
+            // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
           />
         </form>
