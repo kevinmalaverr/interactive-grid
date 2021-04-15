@@ -1,4 +1,5 @@
 import { useLocation } from "@reach/router"
+import { navigate } from "gatsby"
 import languagesConfig from "../config/languages.json"
 
 const useLanguage = () => {
@@ -7,9 +8,17 @@ const useLanguage = () => {
 
   const match = pathname.match(regex)
 
-  if (match) return match[1]
+  const changeLang = (langCode) => {
+    const langPath =
+      langCode === languagesConfig.defaultLanguage ? "" : `/${langCode}`
+    navigate(match ? langPath + pathname.slice(3) : langPath + pathname)
+  }
 
-  return languagesConfig.defaultLanguage
+  if (match) {
+    return [match[1], pathname.slice(3), changeLang]
+  }
+
+  return [languagesConfig.defaultLanguage, pathname, changeLang]
 }
 
 export default useLanguage

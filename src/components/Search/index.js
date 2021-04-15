@@ -9,7 +9,7 @@ const Search = ({ isOpen, close }) => {
   const [search, setSearch] = useState("")
   const [allData, setAllData] = useState([])
   const [result, setResult] = useState([])
-  const lang = useLanguage()
+  const [lang] = useLanguage()
 
   useEffect(() => {
     fetch(`/searches/searchIndexes.${lang}.json`)

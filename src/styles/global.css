@@ -53,7 +53,7 @@ select {
   padding: 0.4rem;
   display: block;
   width: 100%;
-  border: 1px solid #818cf8;
+  /* border: 1px solid #818cf8; */
   border-radius: 8px;
 }
 
