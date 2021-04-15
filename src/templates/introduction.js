@@ -4,6 +4,7 @@ import Header from "../components/Header"
 import ContentTable from "../components/ContentTable"
 import SectionLayout from "../components/SectionLayout"
 import SEO from "../components/SEO"
+import EditPageButton from "../components/EditPageButton"
 
 const other = ({ data }) => (
   <>
@@ -13,6 +14,7 @@ const other = ({ data }) => (
       <div />
       <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
     </SectionLayout>
+    <EditPageButton config={data.markdownRemark.frontmatter.editOnGithub} />
   </>
 )
 
@@ -28,6 +30,10 @@ export const query = graphql`
         navigation {
           next
           prev
+        }
+        editOnGithub {
+          message
+          url
         }
       }
     }
