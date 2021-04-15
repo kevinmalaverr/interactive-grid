@@ -14,3 +14,5 @@ export const useBackNav = () => {
     navigate(history.pop() || "/")
   }
 }
+
+export default useBackNav

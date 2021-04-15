@@ -3,14 +3,16 @@ import "./styles.css"
 import { Link } from "gatsby"
 import Modal from "../Modal"
 import filterSearch from "../../utils/filterSearch"
+import useLanguage from "../../hooks/useLanguage"
 
 const Search = ({ isOpen, close }) => {
   const [search, setSearch] = useState("")
   const [allData, setAllData] = useState([])
   const [result, setResult] = useState([])
+  const lang = useLanguage()
 
   useEffect(() => {
-    fetch("/searchIndexes.json")
+    fetch(`/searches/searchIndexes.${lang}.json`)
       .then((res) => res.json())
       .then((res) => setAllData(res))
   }, [])
@@ -23,6 +25,7 @@ const Search = ({ isOpen, close }) => {
 
   const handleClose = () => {
     setSearch("")
+    setResult([])
     close()
   }
 
@@ -38,6 +41,7 @@ const Search = ({ isOpen, close }) => {
             value={search}
             onChange={handleChange}
             placeholder="Search"
+            // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
           />
         </form>

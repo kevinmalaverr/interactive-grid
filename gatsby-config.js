@@ -5,7 +5,7 @@ module.exports = {
     description: "An interactive guide of CSS Grid",
     url: "https://interactive-grid.vercel.app", // No trailing slash allowed!
     image: "/images/preview.png", // Path to your image you placed in the 'static' folder
-    twitterUsername: "@occlumency",
+    twitterUsername: "",
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -14,8 +14,14 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
+        path: `${__dirname}/src/markdown`,
+        name: `markdown`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-autolink-headers`],
       },
     },
   ],

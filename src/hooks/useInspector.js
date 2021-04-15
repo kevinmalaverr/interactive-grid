@@ -7,8 +7,7 @@ import awaitEvent from "../utils/awaitEvent"
  * @param {React.DependencyList} deps
  * @returns React.Ref
  */
-// eslint-disable-next-line import/prefer-default-export
-export const useInspector = (deps = []) => {
+const useInspector = (deps = []) => {
   const [windowSize, setWindowSize] = useState()
   const ref = useRef()
 
@@ -34,3 +33,5 @@ export const useInspector = (deps = []) => {
 
   return ref
 }
+
+export default useInspector

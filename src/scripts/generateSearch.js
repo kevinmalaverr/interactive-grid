@@ -1,33 +1,30 @@
-require("dotenv").config()
-
-// db.js
-const Path = require("path")
-const glob = require("glob")
 const fs = require("fs")
 
-const apiFiles = glob.sync(
-  `${Path.resolve(__dirname, "../pageData")}/**/*.js`,
-  {
-    nodir: true,
-  }
-)
+module.exports = function generateSearch(edges) {
+  const regex = new RegExp(`<a href="(.*)">(.*)</a`, "g")
+  const data = {}
 
-const data = []
-
-apiFiles.forEach((filePath) => {
-  const api = require(filePath)
-  const { title, links } = api
-  let [, url] = filePath.split("pageData/")
-  url = url.slice(0, url.length - 3)
-
-  links.forEach((link) => {
-    data.push({
-      title: link.title,
-      page: title,
-      href: `/${url}#target-${link.id}`,
+  edges.forEach(({ node }) => {
+    const content = [...node.tableOfContents.matchAll(regex)]
+    if (data[node.frontmatter.lang] === undefined) {
+      data[node.frontmatter.lang] = []
+    }
+    content.forEach((search) => {
+      data[node.frontmatter.lang].push({
+        title: search[2],
+        page: node.frontmatter.title,
+        href: `${
+          node.frontmatter.lang === "en" ? "" : `/${node.frontmatter.lang}`
+        }${node.frontmatter.slug}${search[1]}`,
+      })
     })
   })
-})
 
-fs.writeFileSync("./static/searchIndexes.json", JSON.stringify(data))
-console.log(`generated ${data.length} searches`)
+  Object.keys(data).forEach((lang) => {
+    fs.writeFileSync(
+      `./static/searches/searchIndexes.${lang}.json`,
+      JSON.stringify(data[lang])
+    )
+    console.log(`${lang}: generated ${data[lang].length} searches`)
+  })
+}

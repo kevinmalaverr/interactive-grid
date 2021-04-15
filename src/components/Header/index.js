@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 import ArrowLeft from "../icons/ArrowLeft"
 import SearchIcon from "../icons/Search"
-import { useBackNav } from "../../hooks/useNavigation"
-import SearchModal from "../Modal"
+import useBackNav from "../../hooks/useNavigation"
 import Search from "../Search"
 
 const index = ({ name }) => {
