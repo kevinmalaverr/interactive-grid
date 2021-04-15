@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }${node.frontmatter.slug}`,
       component: path.resolve(`./src/i18n-pages${node.frontmatter.slug}.js`),
       // values in the context object are passed in as variables to page queries
-      context: { slug: node.frontmatter.slug, lang: node.frontmatter.langKey },
+      context: { slug: node.frontmatter.slug, lang: node.frontmatter.lang },
     })
   })
 }

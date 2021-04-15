@@ -4,6 +4,7 @@ import { navigate } from "gatsby"
 
 const history = []
 
+// eslint-disable-next-line import/prefer-default-export
 export const useBackNav = () => {
   const { pathname } = useLocation()
   useEffect(() => {
