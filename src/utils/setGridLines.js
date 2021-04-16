@@ -28,20 +28,20 @@ export default function setGridLines(containerRef, { extendLines = 10 } = {}) {
       position: absolute;
       height: ${container.offsetHeight}px;
       width: ${container.offsetWidth}px;
-      top: ${container.offsetTop}px;
-      left: ${container.offsetLeft}px;
+      top: ${0}px;
+      left: ${0}px;
     `
 
   for (let i = 0; i < 3; i++) {
     const child = children[i]
-    colLines.push(child.offsetLeft - container.offsetLeft)
-    colLines.push(child.offsetLeft + child.offsetWidth - container.offsetLeft)
+    colLines.push(child.offsetLeft)
+    colLines.push(child.offsetLeft + child.offsetWidth)
   }
 
   for (let i = 0; i < 3; i++) {
     const child = children[i * 3]
-    rowLines.push(child.offsetTop - container.offsetTop)
-    rowLines.push(child.offsetTop + child.offsetHeight - container.offsetTop)
+    rowLines.push(child.offsetTop)
+    rowLines.push(child.offsetTop + child.offsetHeight)
   }
 
   function createGaps(i) {

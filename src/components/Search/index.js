@@ -15,7 +15,7 @@ const Search = ({ isOpen, close }) => {
     fetch(`/searches/searchIndexes.${lang}.json`)
       .then((res) => res.json())
       .then((res) => setAllData(res))
-  }, [])
+  }, [lang])
 
   const handleChange = (event) => {
     const filtered = filterSearch(allData, event.target.value)

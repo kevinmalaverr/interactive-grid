@@ -1,5 +1,6 @@
 .alignment-container {
   display: grid;
+  position: relative;
   grid-template:
     repeat(3, minmax(20%, auto)) /
     repeat(3, minmax(20%, auto));

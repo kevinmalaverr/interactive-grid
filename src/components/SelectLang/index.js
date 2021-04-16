@@ -3,9 +3,7 @@ import useLanguage from "../../hooks/useLanguage"
 import { languages } from "../../config/languages.json"
 
 const SelectLang = () => {
-  const [currentLang, _, changeLang] = useLanguage()
-
-  console.log(currentLang)
+  const [currentLang, , changeLang] = useLanguage()
 
   const handleChange = ({ target }) => {
     changeLang(target.value)
@@ -14,7 +12,9 @@ const SelectLang = () => {
   return (
     <select value={currentLang} onChange={handleChange}>
       {languages.map((language) => (
-        <option value={language}>{language}</option>
+        <option key={language} value={language}>
+          {language}
+        </option>
       ))}
     </select>
   )

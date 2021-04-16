@@ -6,7 +6,7 @@ import useBackNav from "../../hooks/useNavigation"
 import Search from "../Search"
 import SelectLang from "../SelectLang"
 
-const index = ({ name }) => {
+const index = ({ title }) => {
   const back = useBackNav()
   const [open, setOpen] = useState(false)
   const [isPinned, setIsPinned] = useState(false)
@@ -27,7 +27,7 @@ const index = ({ name }) => {
   return (
     <header
       ref={ref}
-      className={`header flex justify-between items-center p-4 mb-4 ${
+      className={`header flex justify-between items-center mb-4 ${
         isPinned ? "pinned" : ""
       }`}
     >
@@ -37,9 +37,9 @@ const index = ({ name }) => {
         onClick={back}
         aria-label="back"
       >
-        <ArrowLeft />
+        <ArrowLeft className="text-indigo-900" />
       </button>
-      <h1 className="text-2xl text-indigo-900 font-bold">{name}</h1>
+      <h1 className="text-2xl text-indigo-900 font-bold">{title}</h1>
       <div className="flex">
         <div className="mr-3">
           <SelectLang />
@@ -50,7 +50,7 @@ const index = ({ name }) => {
           data-tooltip-pos="left"
           onClick={() => setOpen(true)}
         >
-          <SearchIcon />
+          <SearchIcon className="text-indigo-900" />
         </button>
       </div>
       <Search isOpen={open} close={() => setOpen(false)} />

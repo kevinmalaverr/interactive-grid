@@ -1,6 +1,6 @@
 import React from "react"
 
-const Close = () => (
+const Close = ({ size = "1.4em", ...restProps }) => (
   <svg
     aria-hidden="true"
     focusable="false"
@@ -10,8 +10,9 @@ const Close = () => (
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 352 512"
-    width="1.6em"
-    height="1.6em"
+    width={size}
+    height={size}
+    {...restProps}
   >
     <path
       fill="currentColor"

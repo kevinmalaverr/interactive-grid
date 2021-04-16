@@ -9,38 +9,35 @@ import FooterNav from "../../components/FooterNav"
 
 const Alignment = () => (
   <>
-    {/* <Header name={title} />
-    <SEO title={title} description={description} /> */}
-    {/* <ContentTable links={links} />
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
       <div>
         <SubSection id="justify-content">justify-content</SubSection>
-        <p>{content[0]}</p>
+        <p>dsfsdfsdfsdf dfsdf</p>
         <Base type="content" property="justifyContent" />
       </div>
       <div>
         <SubSection id="align-content">align-content</SubSection>
-        <p>{content[1]}</p>
+        <p>dsfsdfsdfsdf dfsdf</p>
         <Base type="content" property="alignContent" />
       </div>
       <div>
         <SubSection id="justify-items">justify-items</SubSection>
-        <p>{content[2]}</p>
+        <p>dsfsdfsdfsdf dfsdf</p>
         <Base type="items" property="justifyItems" />
       </div>
       <div>
         <SubSection id="align-items">align-items</SubSection>
-        <p>{content[3]}</p>
+        <p>dsfsdfsdfsdf dfsdf</p>
         <Base type="items" property="alignItems" />
       </div>
       <div>
         <SubSection id="justify-self">justify-self</SubSection>
-        <p>{content[4]}</p>
+        <p>dsfsdfsdfsdf dfsdf</p>
         <Base type="self" property="justifySelf" />
       </div>
       <div>
         <SubSection id="align-self">align-self</SubSection>
-        <p>{content[5]}</p>
+        <p>dsfsdfsdfsdf dfsdf</p>
         <Base type="self" property="alignSelf" />
       </div>
     </div>
@@ -48,8 +45,7 @@ const Alignment = () => (
       <div className="text-center">
         <SubSection id="playground">Playground</SubSection>
       </div>
-      
-    </div> */}
+    </div>
     <Interactive />
     <FooterNav prev="/introduction" next="/gap" />
   </>

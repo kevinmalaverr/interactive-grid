@@ -4,7 +4,7 @@ import "./styles.css"
 
 const index = ({ prev, next }) => (
   <div className="footer-nav">
-    <Link to={prev}>← prev</Link>
+    <Link to={prev}>← previous</Link>
     <Link to={next}>next →</Link>
   </div>
 )
