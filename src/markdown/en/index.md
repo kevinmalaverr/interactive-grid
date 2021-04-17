@@ -1,6 +1,8 @@
 ---
-title: Interactive Grid
-description: CSS Grid Layout Interactive Guide
+title: 🚀 Explore
+description: Introduction to CSS Grid
 slug: /
-lang: es
+lang: en
+others:
+  headText: Interactive Guide
 ---

@@ -52,6 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
         title: node.frontmatter.title,
         description: node.frontmatter.description,
         navigation: node.frontmatter.navigation,
+        others: node.frontmatter.others,
       },
     })
   })
