@@ -1,6 +1,6 @@
 import React from "react"
 
-const Edit = ({ size = "1.6em", ...restProps }) => (
+const Edit = ({ size = "1.4em", ...restProps }) => (
   <svg
     aria-hidden="true"
     focusable="false"

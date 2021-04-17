@@ -14,6 +14,11 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               slug
               lang
+              description
+              navigation {
+                prev
+                next
+              }
             }
           }
         }
@@ -31,9 +36,24 @@ exports.createPages = async ({ graphql, actions }) => {
           ? ""
           : `/${node.frontmatter.lang}`
       }${node.frontmatter.slug}`,
-      component: path.resolve(`./src/templates${node.frontmatter.slug}.js`),
+      component: path.resolve(
+        `./src/templates${
+          node.frontmatter.slug === "/" ? "/index" : node.frontmatter.slug
+        }.js`
+      ),
       // values in the context object are passed in as variables to page queries
-      context: { slug: node.frontmatter.slug, lang: node.frontmatter.lang },
+      context: {
+        slug: node.frontmatter.slug,
+        lang: node.frontmatter.lang,
+        langPath:
+          node.frontmatter.lang === languagesConfig.defaultLanguage
+            ? ""
+            : `/${node.frontmatter.lang}`,
+        title: node.frontmatter.title,
+        description: node.frontmatter.description,
+        navigation: node.frontmatter.navigation,
+        others: node.frontmatter.others,
+      },
     })
   })
 }

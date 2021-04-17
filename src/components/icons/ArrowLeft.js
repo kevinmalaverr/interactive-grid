@@ -1,6 +1,6 @@
 import React from "react"
 
-const ArrowLeft = () => (
+const ArrowLeft = ({ size = "1.4em", ...restProps }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
@@ -10,8 +10,9 @@ const ArrowLeft = () => (
     className="svg-inline--fa fa-arrow-left fa-w-14"
     role="img"
     viewBox="0 0 448 512"
-    width="1.6em"
-    height="1.6em"
+    width={size}
+    height={size}
+    {...restProps}
   >
     <path
       fill="currentColor"
