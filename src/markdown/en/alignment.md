@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Alignment
 description: Introduction to CSS Grid
 slug: /alignment
 lang: en

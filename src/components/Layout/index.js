@@ -4,6 +4,7 @@ import { Provider } from "../../context"
 import Header from "../Header/index"
 import SEO from "../SEO"
 import FooterNav from "../FooterNav"
+import Banner from "../Banner"
 
 const Layout = ({ children, pageContext, ...props }) => (
   <Provider>
@@ -12,6 +13,7 @@ const Layout = ({ children, pageContext, ...props }) => (
       description={pageContext.description}
       lang={pageContext.lang}
     />
+    <Banner />
     <Header title={pageContext.title} />
     <div className="main-container">
       <div>{children}</div>

@@ -1,0 +1,9 @@
+.banner {
+  padding: 0.4rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .banner {
+    padding: 0.4rem 3rem;
+  }
+}

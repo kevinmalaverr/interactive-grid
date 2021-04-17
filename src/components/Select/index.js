@@ -10,13 +10,18 @@ const Select = ({ options, onChange, ...props }) => {
   }
 
   return (
-    <select value={value} onChange={handleChange} {...props}>
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
-          {option.label}
-        </option>
-      ))}
-    </select>
+    <label className="select">
+      <select value={value} onChange={handleChange} {...props}>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+      <svg>
+        <use xlinkHref="#select-arrow-down" />
+      </svg>
+    </label>
   )
 }
 

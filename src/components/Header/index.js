@@ -4,7 +4,6 @@ import ArrowLeft from "../icons/ArrowLeft"
 import SearchIcon from "../icons/Search"
 import useBackNav from "../../hooks/useNavigation"
 import Search from "../Search"
-import SelectLang from "../SelectLang"
 
 const Header = ({ title }) => {
   const back = useBackNav()
@@ -39,20 +38,16 @@ const Header = ({ title }) => {
       >
         <ArrowLeft className="text-indigo-900" />
       </button>
-      <h1 className="text-2xl text-indigo-900 font-bold">{title}</h1>
-      <div className="flex">
-        <div className="mr-3">
-          <SelectLang />
-        </div>
-        <button
-          type="button"
-          aria-label="Search"
-          data-tooltip-pos="left"
-          onClick={() => setOpen(true)}
-        >
-          <SearchIcon className="text-indigo-900" />
-        </button>
-      </div>
+      <h1 className="text-xl text-indigo-900 font-bold">{title}</h1>
+      <button
+        type="button"
+        aria-label="Search"
+        data-tooltip-pos="left"
+        onClick={() => setOpen(true)}
+      >
+        <SearchIcon className="text-indigo-900" />
+      </button>
+
       <Search isOpen={open} close={() => setOpen(false)} />
     </header>
   )

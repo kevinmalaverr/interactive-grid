@@ -10,7 +10,11 @@ const SelectLang = () => {
   }
 
   return (
-    <select value={currentLang} onChange={handleChange}>
+    <select
+      value={currentLang}
+      onChange={handleChange}
+      className="focus:outline-none focus:ring focus:ring-indigo-300"
+    >
       {languages.map((language) => (
         <option key={language} value={language}>
           {language}
