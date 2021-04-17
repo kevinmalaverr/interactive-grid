@@ -1,4 +1,4 @@
-.section-layout {
+/* .section-layout {
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 2rem;
@@ -16,4 +16,4 @@
   .section-layout > *:last-child {
     grid-row: 1/2;
   }
-}
+} */

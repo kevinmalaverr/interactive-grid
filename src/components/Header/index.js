@@ -6,7 +6,7 @@ import useBackNav from "../../hooks/useNavigation"
 import Search from "../Search"
 import SelectLang from "../SelectLang"
 
-const index = ({ title }) => {
+const Header = ({ title }) => {
   const back = useBackNav()
   const [open, setOpen] = useState(false)
   const [isPinned, setIsPinned] = useState(false)
@@ -57,4 +57,5 @@ const index = ({ title }) => {
     </header>
   )
 }
-export default index
+
+export default Header
