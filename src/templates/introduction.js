@@ -2,37 +2,54 @@ import React from "react"
 import { graphql } from "gatsby"
 import SectionLayout from "../components/SectionLayout"
 import EditPageButton from "../components/EditPageButton"
-
-const other = ({ data }) => (
-  <>
-    <SectionLayout>
-      <div />
-      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-    </SectionLayout>
-    <EditPageButton config={data.markdownRemark.frontmatter.editOnGithub} />
-  </>
-)
+import PageWrapper from "../components/PageWrapper"
+import { pageQuery } from "../queries"
 
 export const query = graphql`
   query($slug: String!, $lang: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug }, lang: { eq: $lang } }) {
+    page: markdownRemark(
+      frontmatter: { slug: { eq: $slug }, lang: { eq: $lang } }
+    ) {
       html
       frontmatter {
-        description
-        lang
         title
+        description
         slug
-        navigation {
-          next
-          prev
-        }
+        lang
         editOnGithub {
           message
           url
         }
+        navigation {
+          prev
+          next
+        }
+      }
+    }
+    general: markdownRemark(
+      frontmatter: { lang: { eq: $lang }, type: { eq: "general" } }
+    ) {
+      frontmatter {
+        description
+        lang
+        title
+        type
       }
     }
   }
 `
+
+const other = ({ data }) => {
+  console.log(data)
+  return (
+    <PageWrapper data={data}>
+      <SectionLayout>
+        <div />
+        <div dangerouslySetInnerHTML={{ __html: data.page.html }} />
+      </SectionLayout>
+      <EditPageButton config={data.page.frontmatter.editOnGithub} />
+    </PageWrapper>
+  )
+}
 
 export default other

@@ -11,6 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             tableOfContents
             frontmatter {
+              type
               title
               slug
               lang
@@ -29,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
   generateSearch(result.data.allMarkdownRemark.edges)
 
   result.data.allMarkdownRemark.edges.forEach(({ node }, index) => {
-    deletePage()
+    if (node.frontmatter.type === "general") return
     createPage({
       path: `${
         node.frontmatter.lang === languagesConfig.defaultLanguage
@@ -43,16 +44,11 @@ exports.createPages = async ({ graphql, actions }) => {
       ),
       // values in the context object are passed in as variables to page queries
       context: {
-        slug: node.frontmatter.slug,
-        lang: node.frontmatter.lang,
+        ...node.frontmatter,
         langPath:
           node.frontmatter.lang === languagesConfig.defaultLanguage
             ? ""
             : `/${node.frontmatter.lang}`,
-        title: node.frontmatter.title,
-        description: node.frontmatter.description,
-        navigation: node.frontmatter.navigation,
-        others: node.frontmatter.others,
       },
     })
   })

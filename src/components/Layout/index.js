@@ -7,7 +7,7 @@ import FooterNav from "../FooterNav"
 import Banner from "../Banner"
 
 const Layout = ({ children, pageContext, ...props }) => (
-  <Provider>
+  <Provider data={pageContext}>
     <SEO
       title={pageContext.title}
       description={pageContext.description}
