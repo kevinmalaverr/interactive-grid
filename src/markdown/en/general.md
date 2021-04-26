@@ -2,7 +2,7 @@
 type: general
 lang: en
 banner:
-  colaborate: Colaborate
+  collaborate: Collaborate
   language: Language
 footerNav:
   prev: Previous

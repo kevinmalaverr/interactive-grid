@@ -1,14 +1,11 @@
 import React from "react"
 import "./styles.css"
-import { useStaticQuery, graphql } from "gatsby"
 import SelectLang from "../SelectLang"
 import useLanguage from "../../hooks/useLanguage"
 import { useGetContext } from "../../context"
 
-const Banner = (props) => {
-  const [lang] = useLanguage()
-  const d = useGetContext()
-  console.log(d)
+const Banner = () => {
+  const { state } = useGetContext()
   return (
     <aside className="banner flex items-center justify-end text-gray-600 text-sm">
       <a
@@ -17,9 +14,11 @@ const Banner = (props) => {
         target="_blank"
         rel="noreferrer"
       >
-        col
+        {state.data.general.frontmatter.banner.collaborate}
       </a>
-      <span className="mr-1">lang:</span>
+      <span className="mr-1">
+        {state.data.general.frontmatter.banner.language}:{" "}
+      </span>
       <div>
         <SelectLang />
       </div>

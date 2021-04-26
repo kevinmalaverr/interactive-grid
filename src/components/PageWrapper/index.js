@@ -1,14 +1,8 @@
-import React, { useLayoutEffect } from "react"
-import { useGetContext } from "../../context"
+import React from "react"
+import { Provider } from "../../context"
 
-const PageWrapper = ({ data, children }) => {
-  const { dispatch } = useGetContext()
-
-  useLayoutEffect(() => {
-    dispatch({ type: "SET_STATE", payload: data })
-  }, [data])
-
-  return children
-}
+const PageWrapper = ({ data, children }) => (
+  <Provider data={data}>{children}</Provider>
+)
 
 export default PageWrapper
