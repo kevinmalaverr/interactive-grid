@@ -1,5 +1,7 @@
 const fs = require("fs")
 
+const path = "./static/searches"
+
 module.exports = function generateSearch(edges) {
   const regex = new RegExp(`<a href="(.*)">(.*)</a`, "g")
   const data = {}
@@ -20,9 +22,13 @@ module.exports = function generateSearch(edges) {
     })
   })
 
+  if (!fs.existsSync(path)) {
+    fs.mkdirSync(path)
+  }
+
   Object.keys(data).forEach((lang) => {
     fs.writeFileSync(
-      `./static/searches/searchIndexes.${lang}.json`,
+      `${path}/searchIndexes.${lang}.json`,
       JSON.stringify(data[lang])
     )
     console.log(`${lang}: generated ${data[lang].length} searches`)
