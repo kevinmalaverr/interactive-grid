@@ -3,9 +3,7 @@ title: Alignment
 description: Introduction to CSS Grid
 slug: /alignment
 lang: es
-editOnGithub:
-  message: Edit this page on Github
-  url: es/alignment.md
+editOnGithub: es/alignment.md
 navigation:
   prev: /
   next: /template

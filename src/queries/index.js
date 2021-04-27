@@ -8,10 +8,7 @@ export const PageData = graphql`
       description
       slug
       lang
-      editOnGithub {
-        message
-        url
-      }
+      editOnGithub
       navigation {
         prev
         next
@@ -27,6 +24,7 @@ export const GeneralData = graphql`
       lang
       title
       type
+      editOnGithub
       banner {
         collaborate
         language

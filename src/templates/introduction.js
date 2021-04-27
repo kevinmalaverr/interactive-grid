@@ -25,7 +25,10 @@ const other = ({ data }) => (
       <div />
       <div dangerouslySetInnerHTML={{ __html: data.page.html }} />
     </SectionLayout>
-    <EditPageButton config={data.page.frontmatter.editOnGithub} />
+    <EditPageButton
+      url={data.page.frontmatter.editOnGithub}
+      message={data.general.frontmatter.editOnGithub}
+    />
   </Layout>
 )
 

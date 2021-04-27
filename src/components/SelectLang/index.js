@@ -3,7 +3,7 @@ import useLanguage from "../../hooks/useLanguage"
 import { languages } from "../../config/languages.json"
 
 const SelectLang = () => {
-  const [currentLang, , changeLang] = useLanguage()
+  const { lang, changeLang } = useLanguage()
 
   const handleChange = ({ target }) => {
     changeLang(target.value)
@@ -11,7 +11,7 @@ const SelectLang = () => {
 
   return (
     <select
-      value={currentLang}
+      value={lang}
       onChange={handleChange}
       className="focus:outline-none focus:ring focus:ring-indigo-300"
     >

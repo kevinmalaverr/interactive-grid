@@ -7,4 +7,5 @@ banner:
 footerNav:
   prev: Previous
   next: Next
+editOnGithub: Edit this page on Github
 ---

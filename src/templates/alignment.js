@@ -1,20 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Header from "../components/Header"
-import SEO from "../components/SEO"
 import Base from "../components/Alignment/Animation"
 import SubSection from "../components/SubSection"
-import ContentTable from "../components/ContentTable"
 import Interactive from "../components/Alignment/Interactive"
-import FooterNav from "../components/FooterNav"
 import MdContainer from "../components/MdContainer"
 import { splitHtml } from "../utils/strings"
 import SectionLayout from "../components/SectionLayout"
+import Layout from "../components/Layout"
 
 const Alignment = ({ data }) => {
-  const sections = splitHtml(data.markdownRemark.html)
+  const sections = splitHtml(data.page.html)
   return (
-    <>
+    <Layout data={data}>
       <SectionLayout>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           <div>
@@ -49,28 +46,21 @@ const Alignment = ({ data }) => {
         </div>
         <Interactive />
       </SectionLayout>
-    </>
+    </Layout>
   )
 }
 
 export const query = graphql`
   query($slug: String!, $lang: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug }, lang: { eq: $lang } }) {
-      html
-      frontmatter {
-        description
-        lang
-        title
-        slug
-        navigation {
-          next
-          prev
-        }
-        editOnGithub {
-          message
-          url
-        }
-      }
+    page: markdownRemark(
+      frontmatter: { slug: { eq: $slug }, lang: { eq: $lang } }
+    ) {
+      ...PageData
+    }
+    general: markdownRemark(
+      frontmatter: { lang: { eq: $lang }, type: { eq: "general" } }
+    ) {
+      ...GeneralData
     }
   }
 `

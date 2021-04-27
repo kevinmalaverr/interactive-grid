@@ -15,10 +15,18 @@ const useLanguage = () => {
   }
 
   if (match) {
-    return [match[1], pathname.slice(3), changeLang]
+    return {
+      lang: match[1],
+      langPath: pathname.slice(0, 3),
+      changeLang,
+    }
   }
 
-  return [languagesConfig.defaultLanguage, pathname, changeLang]
+  return {
+    lang: languagesConfig.defaultLanguage,
+    langPath: "",
+    changeLang,
+  }
 }
 
 export default useLanguage

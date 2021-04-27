@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
+  padding: 1rem;
 }
 
 .modal__background {

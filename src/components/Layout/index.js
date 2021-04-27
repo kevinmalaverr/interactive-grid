@@ -5,9 +5,10 @@ import SEO from "../SEO"
 import FooterNav from "../FooterNav"
 import Banner from "../Banner"
 import { Provider } from "../../context"
+import useLanguage from "../../hooks/useLanguage"
 
 const Layout = ({ children, data }) => {
-  console.log(data)
+  const { langPath } = useLanguage()
   return (
     <Provider data={data}>
       <SEO
@@ -21,14 +22,8 @@ const Layout = ({ children, data }) => {
         <div>{children}</div>
         {data.page.frontmatter.navigation ? (
           <FooterNav
-            prev={
-              data.page.frontmatter.langPath +
-              data.page.frontmatter.navigation.prev
-            }
-            next={
-              data.page.frontmatter.langPath +
-              data.page.frontmatter.navigation.next
-            }
+            prev={langPath + data.page.frontmatter.navigation.prev}
+            next={langPath + data.page.frontmatter.navigation.next}
           />
         ) : null}
       </div>

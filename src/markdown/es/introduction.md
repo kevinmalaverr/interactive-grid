@@ -3,9 +3,7 @@ title: Introducción
 description: Introducción a CSS grid
 slug: /introduction
 lang: es
-editOnGithub:
-  message: Editar esta página en github
-  url: es/introduction.md
+editOnGithub: es/introduction.md
 navigation:
   prev: /
   next: /template

@@ -1,7 +1,6 @@
 import React from "react"
 import "./styles.css"
 import SelectLang from "../SelectLang"
-import useLanguage from "../../hooks/useLanguage"
 import { useGetContext } from "../../context"
 
 const Banner = () => {
